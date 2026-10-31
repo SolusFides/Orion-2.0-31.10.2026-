@@ -30,8 +30,8 @@ function RoomPage() {
             <h2>Устройства</h2>
         </button>
 
-        <button onClick={() => console.log('Сценарии комнаты')}>
-          <h2>Сценарии</h2>
+        <button onClick={() => dispatch(setPage('room-scenarios'))}>
+            <h2>Сценарии</h2>
         </button>
       </div>
     </section>

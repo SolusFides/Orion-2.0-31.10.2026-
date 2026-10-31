@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setPage } from '../../store/navigationSlice';
+import { setDevice, setPage } from '../../store/navigationSlice';
 
 function RoomDevicesPage() {
   const dispatch = useDispatch();
@@ -33,6 +33,9 @@ function RoomDevicesPage() {
   const roomDevices = devices[selectedRoomId] || [];
 
   function openDevice(deviceId) {
+    dispatch(setDevice(deviceId));
+    dispatch(setPage('device'));
+
     console.log('Выбрано устройство:', deviceId);
   }
 
