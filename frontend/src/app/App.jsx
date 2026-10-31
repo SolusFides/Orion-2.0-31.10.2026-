@@ -1,6 +1,10 @@
+
 import { useSelector } from 'react-redux';
 
 import Footer from '../components/Footer/Footer';
+import WelcomePage from '../pages/WelcomePage/WelcomePage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import RoomSelectionPage from '../pages/RoomSelectionPage/RoomSelectionPage';
 import HomePage from '../pages/HomePage/HomePage';
 import ScenariosPage from '../pages/ScenariosPage/ScenariosPage';
 import EventsPage from '../pages/EventsPage/EventsPage';
@@ -20,6 +24,15 @@ function App() {
   let page;
 
   switch (currentPage) {
+    case 'welcome':
+      page = <WelcomePage />;
+      break;
+    case 'login':
+      page = <LoginPage />;
+      break;
+    case 'room-selection':
+      page = <RoomSelectionPage />;
+      break;
     case 'scenarios':
       page = <ScenariosPage />;
       break;
@@ -54,7 +67,9 @@ function App() {
   return (
     <>
       <main>{page}</main>
-      <Footer />
+      {currentPage !== 'welcome' &&
+        currentPage !== 'login' &&
+        <Footer />}
     </>
   );
 }

@@ -1,9 +1,10 @@
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const navigationSlice = createSlice({
   name: 'navigation',
   initialState: {
-    currentPage: 'home',
+    currentPage: 'welcome',
     selectedRoomId: null,
     selectedDeviceId: null
   },
