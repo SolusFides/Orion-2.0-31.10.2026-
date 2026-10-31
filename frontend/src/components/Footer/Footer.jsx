@@ -1,34 +1,36 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../../store/navigationSlice';
 
-function Header() {
+function Footer() {
   const dispatch = useDispatch();
-  const currentPage = useSelector(state => state.navigation.currentPage);
+  const currentPage = useSelector(
+    (state) => state.navigation.currentPage
+  );
 
   return (
-    <header>
+    <footer>
       <button
-        onClick={() => dispatch(setPage('home'))}
         disabled={currentPage === 'home'}
+        onClick={() => dispatch(setPage('home'))}
       >
         Дом
       </button>
 
       <button
-        onClick={() => dispatch(setPage('scenarios'))}
         disabled={currentPage === 'scenarios'}
+        onClick={() => dispatch(setPage('scenarios'))}
       >
         Сценарии
       </button>
 
       <button
-        onClick={() => dispatch(setPage('events'))}
         disabled={currentPage === 'events'}
+        onClick={() => dispatch(setPage('events'))}
       >
         Журнал событий
       </button>
-    </header>
+    </footer>
   );
 }
 
-export default Header;
+export default Footer;

@@ -1,35 +1,41 @@
 import { useSelector } from 'react-redux';
 
-import Header from '../components/Header/Header';
-
+import Footer from '../components/Footer/Footer';
 import HomePage from '../pages/HomePage/HomePage';
 import ScenariosPage from '../pages/ScenariosPage/ScenariosPage';
 import EventsPage from '../pages/EventsPage/EventsPage';
+import RoomPage from '../pages/RoomPage/RoomPage';
+import RoomDevicesPage from '../pages/RoomDevicesPage/RoomDevicesPage';
 
 function App() {
-  const currentPage = useSelector(state => state.navigation.currentPage);
+  const currentPage = useSelector(
+    (state) => state.navigation.currentPage
+  );
 
-  function renderPage() {
-    switch (currentPage) {
-      case 'home':
-        return <HomePage />;
+  let page;
 
-      case 'scenarios':
-        return <ScenariosPage />;
-
-      case 'events':
-        return <EventsPage />;
-
-      default:
-        return <HomePage />;
-    }
+  switch (currentPage) {
+    case 'scenarios':
+      page = <ScenariosPage />;
+      break;
+    case 'events':
+      page = <EventsPage />;
+      break;
+    case 'room':
+      page = <RoomPage />;
+      break;
+    case 'room-devices':
+      page = <RoomDevicesPage />;
+      break;
+    default:
+      page = <HomePage />;
   }
 
   return (
-    <div>
-      <Header />
-      {renderPage()}
-    </div>
+    <>
+      <main>{page}</main>
+      <Footer />
+    </>
   );
 }
 
