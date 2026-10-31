@@ -5,8 +5,7 @@ const navigationSlice = createSlice({
   initialState: {
     currentPage: 'home',
     selectedRoomId: null,
-    selectedDeviceId: null,
-    selectedScenarioId: null
+    selectedDeviceId: null
   },
   reducers: {
     setPage: (state, action) => {
@@ -17,9 +16,6 @@ const navigationSlice = createSlice({
     },
     setDevice: (state, action) => {
       state.selectedDeviceId = action.payload;
-    },
-    setScenario: (state, action) => {
-      state.selectedScenarioId = action.payload;
     }
   }
 });
@@ -27,8 +23,7 @@ const navigationSlice = createSlice({
 export const {
   setPage,
   setRoom,
-  setDevice,
-  setScenario
+  setDevice
 } = navigationSlice.actions;
 
 export default navigationSlice.reducer;
