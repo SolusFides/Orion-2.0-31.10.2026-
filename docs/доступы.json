@@ -1,0 +1,113 @@
+{
+ "team": "Орион",
+ "api_base": "https://api-uae-test.ujin.tech/api",
+ "stand": "uae",
+ "stand_contract": "uae",
+ "urls": {
+  "bms_web": "https://bms-uae-test.ujin.tech",
+  "admin_pink": "https://api-uae-test.ujin.tech/api/v1/pub/admin/login",
+  "lk": "https://beta-lk-developer.ujin.tech"
+ },
+ "residents": [
+  {
+   "login": "79906170201",
+   "password": "Hk0S4ZU-lix!",
+   "ust": "ust-2815057-29384703b36e85f03086211bc8f210eb",
+   "apartment_id": "2761"
+  },
+  {
+   "login": "79903411642",
+   "password": "Hk1XOWZ-ltw!",
+   "ust": "ust-2815058-cddbbd9bd4b53a86b2b01a950adea39b",
+   "apartment_id": "2761"
+  },
+  {
+   "login": "79904674533",
+   "password": "Hk7EZY4-ach!",
+   "ust": "ust-2815059-3278ca5d615513a5e7e0128d497b7a1c",
+   "apartment_id": "2761"
+  }
+ ],
+ "devices": [
+  {
+   "family": "leak",
+   "sn": "17048841600018823",
+   "ext": "orion_leak_01",
+   "model": "parkcloud_device",
+   "apartment_id": "2761",
+   "bound": true,
+   "auth": "ust employee + apartment_id",
+   "publish_class": "integrations_devices"
+  },
+  {
+   "family": "barrier",
+   "sn": "17036997610004751",
+   "ext": "orion_barrier_01",
+   "model": "parkcloud_device",
+   "apartment_id": "2761",
+   "bound": true,
+   "auth": "ust employee + apartment_id",
+   "publish_class": "integrations_devices"
+  },
+  {
+   "family": "thermostat",
+   "sn": "17048805610011304",
+   "ext": "orion_thermostat_01",
+   "model": "parkcloud_device",
+   "apartment_id": "2761",
+   "bound": true,
+   "auth": "ust employee + apartment_id",
+   "publish_class": "integrations_devices"
+  },
+  {
+   "family": "counter",
+   "sn": "17048697650006653",
+   "ext": "orion_counter_01",
+   "model": "parkcloud_device",
+   "apartment_id": "2761",
+   "bound": true,
+   "auth": "ust employee + apartment_id",
+   "publish_class": "integrations_devices"
+  },
+  {
+   "family": "light",
+   "sn": "17036925610003125",
+   "ext": "orion_light_01",
+   "model": "parkcloud_device",
+   "apartment_id": "2761",
+   "bound": true,
+   "auth": "ust employee + apartment_id",
+   "publish_class": "integrations_devices"
+  }
+ ],
+ "warnings": [
+  "cos без срока (UJIN_COS_FINISH не задан) — Р-04: канун-выдача обязана задать дату окончания",
+  "uae: комплы 0/4 верифицированы — остальные ждут verify-compl (модератор орг-ов)",
+  "anchor: integration/create: Неправильный запрос"
+ ],
+ "bms": {
+  "skipped": "uae: ЖК от орг-ов (stands.json employee_bms_id), розовая админка недоступна (R-34)"
+ },
+ "cos_token": "con-10829-89423276a71e085826bd70ca264d8509",
+ "consumer_id": 10829,
+ "issued_at": "2026-10-31T02:34:00",
+ "compl_granted": [
+  "electricity",
+  "integrations_devices",
+  "management",
+  "rvi"
+ ],
+ "employee": {
+  "login": "79904513908",
+  "password": "Hk2VQPU-ojg!",
+  "app": "employee"
+ },
+ "db_records": [
+  "ЗАПИСЬ БД: userdata_buildings +userdata 2815060 → 2 дом(ов) ЖК 67 (ids={[r[0] for r in (r2 or [])][:4]}…) — приём орг-ов; в список удаления орг-ам",
+  "ЗАПИСЬ БД: user_apartment_compl +резидент 79906170201 → кв 2761 (uac_id=469, uac_management=3) — в список удаления орг-ам",
+  "ЗАПИСЬ БД: user_apartment_compl +резидент 79903411642 → кв 2761 (uac_id=470, uac_management=3) — в список удаления орг-ам",
+  "ЗАПИСЬ БД: user_apartment_compl +резидент 79904674533 → кв 2761 (uac_id=471, uac_management=3) — в список удаления орг-ам"
+ ],
+ "team_apartment": "2761",
+ "complex_id": 67
+}

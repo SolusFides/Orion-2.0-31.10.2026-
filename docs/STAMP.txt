@@ -1,0 +1,4 @@
+team=orion
+built=2026-10-31T05:58:25
+issued_at=2026-10-31T02:34:00
+cos_finish=0 (без срока — Р-04)
