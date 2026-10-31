@@ -10,6 +10,7 @@ import RoomScenariosPage from '../pages/RoomScenariosPage/RoomScenariosPage';
 import DevicePage from '../pages/DevicePage/DevicePage';
 import HomeScenariosPage from '../pages/HomeScenariosPage/HomeScenariosPage';
 import ScenarioEditorPage from '../pages/ScenarioEditorPage/ScenarioEditorPage';
+import RoomScenariosListPage from '../pages/RoomScenariosListPage/RoomScenariosListPage';
 
 function App() {
   const currentPage = useSelector(
@@ -42,6 +43,9 @@ function App() {
       break;
     case 'scenario-editor':
       page = <ScenarioEditorPage />;
+      break;
+    case 'room-scenarios-list':
+      page = <RoomScenariosListPage />;
       break;
     default:
       page = <HomePage />;
