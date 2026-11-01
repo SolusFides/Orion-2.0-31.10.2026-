@@ -1,8 +1,8 @@
-
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setPage } from '../../store/navigationSlice';
+import { loginUser } from '../../store/authSlice';
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -11,27 +11,36 @@ function LoginPage() {
     (state) => state.auth.authMode
   );
 
+  const status = useSelector((state) => state.auth.status);
+  const error = useSelector((state) => state.auth.error);
+
   const isLogin = authMode === 'login';
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = () => {
-    localStorage.setItem('username', username);
-    localStorage.setItem('password', password);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    if (isLogin) {
-      dispatch(setPage('home'));
-    } else {
+    if (!isLogin) {
       dispatch(setPage('room-selection'));
+      return;
     }
+
+    try {
+      await dispatch(loginUser({ username, password })).unwrap();
+    } catch {
+      console.error('Ошибка авторизации');
+    }
+
+    dispatch(setPage('home'));
   };
 
   return (
     <main>
       <h1>{isLogin ? 'Вход' : 'Регистрация'}</h1>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Логин</label>
           <input
@@ -56,9 +65,11 @@ function LoginPage() {
           />
         </div>
 
-        <button type="button" onClick={handleSubmit}>
-          {isLogin ? 'Войти' : 'Зарегистрироваться'}
+        <button type="submit" disabled={status === 'loading'}>
+          {status === 'loading' ? 'Выполняется вход...' : isLogin ? 'Войти' : 'Зарегистрироваться'}
         </button>
+
+        {error && <p>{JSON.stringify(error)}</p>}
       </form>
     </main>
   );
