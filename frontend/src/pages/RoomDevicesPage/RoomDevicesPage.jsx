@@ -54,6 +54,7 @@ function RoomDevicesPage() {
       <div>
         {roomDevices.map((device) => (
           <button
+            className="device-card"
             key={device.id}
             onClick={() => openDevice(device.id)}
           >

@@ -2,14 +2,14 @@
 import { useState } from 'react';
 
 const mockRoomTypes = [
-  { id: 1, name: 'Гостиная', icon: '🛋️' },
-  { id: 2, name: 'Кухня', icon: '🍽️' },
-  { id: 3, name: 'Спальня', icon: '🛏️' },
-  { id: 4, name: 'Детская', icon: '🧸' },
-  { id: 5, name: 'Ванная', icon: '🛁' },
-  { id: 6, name: 'Прихожая', icon: '🚪' },
-  { id: 7, name: 'Кабинет', icon: '💻' },
-  { id: 8, name: 'Балкон', icon: '🌿' }
+  { id: 1, name: 'Гостиная'},
+  { id: 2, name: 'Кухня'},
+  { id: 3, name: 'Спальня'},
+  { id: 4, name: 'Детская'},
+  { id: 5, name: 'Ванная'},
+  { id: 6, name: 'Прихожая'},
+  { id: 7, name: 'Кабинет'},
+  { id: 8, name: 'Балкон'}
 ];
 
 function RoomSelectionPage() {
@@ -24,7 +24,7 @@ function RoomSelectionPage() {
   };
 
   return (
-    <main>
+    <main className="room-selection-page">
       <h1>Выберите комнаты</h1>
 
       <p>
@@ -32,7 +32,7 @@ function RoomSelectionPage() {
         Для каждой комнаты будут подготовлены подходящие настройки.
       </p>
 
-      <div>
+      <div className="room-options">
         {mockRoomTypes.map((room) => {
           const isSelected = selectedRooms.includes(room.id);
 

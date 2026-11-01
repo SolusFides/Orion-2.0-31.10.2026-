@@ -30,7 +30,7 @@ function ScenarioEditorPage() {
   );
 
   return (
-    <section>
+    <section className="scenario-editor">
       <button onClick={() => dispatch(setPage('room-scenarios'))}>
         ← Назад
       </button>

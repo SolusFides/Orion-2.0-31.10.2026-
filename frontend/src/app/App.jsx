@@ -15,6 +15,7 @@ import DevicePage from '../pages/DevicePage/DevicePage';
 import HomeScenariosPage from '../pages/HomeScenariosPage/HomeScenariosPage';
 import ScenarioEditorPage from '../pages/ScenarioEditorPage/ScenarioEditorPage';
 import RoomScenariosListPage from '../pages/RoomScenariosListPage/RoomScenariosListPage';
+import AssistantPage from '../pages/AssistantPage/AssistantPage';
 
 function App() {
   const currentPage = useSelector(
@@ -60,17 +61,24 @@ function App() {
     case 'room-scenarios-list':
       page = <RoomScenariosListPage />;
       break;
+    case 'assistant':
+      page = <AssistantPage />;
+      break;
     default:
       page = <HomePage />;
   }
 
   return (
-    <>
-      <main>{page}</main>
-      {currentPage !== 'welcome' &&
-        currentPage !== 'login' &&
-        <Footer />}
-    </>
+    <div>
+      <div>
+        <main>{page}</main>
+        {currentPage !== 'welcome' &&
+          currentPage !== 'login' &&
+          <Footer />
+        }
+      </div>
+    </div>
+    
   );
 }
 

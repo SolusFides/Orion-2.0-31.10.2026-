@@ -12,19 +12,19 @@ function LoginPage() {
 
   const isLogin = authMode === 'login';
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleLogin = () => {
+    dispatch(setPage('home'));
+  };
 
-    if (!isLogin) {
-      dispatch(setPage('room-selection'));
-    }
+  const handleRegister = () => {
+    dispatch(setPage('room-selection'));
   };
 
   return (
     <main>
       <h1>{isLogin ? 'Вход' : 'Регистрация'}</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
           <label htmlFor="email">Электронная почта</label>
           <input
@@ -45,9 +45,15 @@ function LoginPage() {
           />
         </div>
 
-        <button type="submit">
-          {isLogin ? 'Войти' : 'Зарегистрироваться'}
-        </button>
+        {isLogin ? (
+          <button type="button" onClick={handleLogin}>
+            Войти
+          </button>
+        ) : (
+          <button type="button" onClick={handleRegister}>
+            Зарегистрироваться
+          </button>
+        )}
       </form>
     </main>
   );

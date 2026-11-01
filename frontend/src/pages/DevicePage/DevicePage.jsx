@@ -37,7 +37,7 @@ function DevicePage() {
 
   if (!device) {
     return (
-      <section>
+      <section className="device-page">
         <button onClick={() => dispatch(setPage('room-devices'))}>
           ← Назад
         </button>

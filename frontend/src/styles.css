@@ -1,0 +1,563 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+  background: #e8e8e8;
+
+  --black: #080808;
+  --white: #fff;
+  --text: #222;
+  --muted: #777;
+
+  --gray-light: #f5f5f5;
+  --gray: #d6d6d6;
+  --gray-dark: #555;
+
+  --success: #16834d;
+  --error: #c52b20;
+
+  --border: 1px solid #d6d6d6;
+  --border-strong: 1.5px solid #080808;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  --footer-height: 68px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  font-size: 16px;
+  line-height: 1.45;
+  background: #e8e8e8;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+#root > div {
+  min-height: 100dvh;
+}
+
+#root > div > div {
+  min-height: 100dvh;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: calc(var(--footer-height) + env(safe-area-inset-bottom));
+  background: var(--white);
+}
+
+main,
+section {
+  width: 100%;
+  padding: 24px 20px;
+}
+
+main {
+  min-height: 100%;
+}
+
+section {
+  margin-bottom: 16px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--black);
+  line-height: 1.2;
+}
+
+h1 {
+  margin-bottom: 24px;
+  font-size: 26px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+h3 {
+  margin-bottom: 8px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 12px;
+  color: var(--text);
+}
+
+span {
+  color: inherit;
+}
+
+button {
+  min-height: 48px;
+  padding: 12px 16px;
+  border: var(--border-strong);
+  border-radius: 0;
+  background: var(--white);
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+button:active:not(:disabled) {
+  background: var(--black);
+  color: var(--white);
+}
+
+button:disabled {
+  background: var(--black);
+  color: var(--white);
+  opacity: 1;
+}
+
+.room-card {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 16px;
+  border: var(--border);
+  background: var(--gray-light);
+}
+
+.room-card h3 {
+  margin-bottom: 6px;
+}
+
+.room-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.room-card:active {
+  background: var(--black);
+  color: var(--white);
+}
+
+.room-card:active h3,
+.room-card:active p {
+  color: var(--white);
+}
+
+.device-card {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 16px;
+  border: var(--border);
+  background: var(--white);
+}
+
+.device-card h3 {
+  margin-bottom: 8px;
+}
+
+.device-card p {
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.device-card p:last-child {
+  margin-bottom: 0;
+}
+
+.scenario-card {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 16px;
+  border: var(--border);
+  background: var(--gray-light);
+}
+
+.scenario-card h3 {
+  margin-bottom: 6px;
+}
+
+.scenario-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.home-scenario-card {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 16px;
+  border: var(--border);
+  background: var(--white);
+}
+
+.home-scenario-card h3 {
+  margin-bottom: 6px;
+}
+
+.home-scenario-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.app-footer {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 600px;
+  min-height: var(--footer-height);
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+  border-top: var(--border-strong);
+  background: var(--white);
+  transform: translateX(-50%);
+}
+
+.app-footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 48px;
+  padding: 6px 4px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  text-align: center;
+}
+
+.app-footer button:disabled {
+  background: var(--black);
+  color: var(--white);
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border: var(--border-strong);
+  border-radius: 0;
+  outline: none;
+  background: var(--white);
+  color: var(--text);
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--black);
+  box-shadow: 0 0 0 1px var(--black);
+}
+
+form {
+  display: grid;
+  gap: 20px;
+}
+
+form > div {
+  display: grid;
+  gap: 6px;
+}
+
+.scenario-editor > div {
+  margin-bottom: 20px;
+  padding: 16px;
+  border: var(--border);
+  background: var(--gray-light);
+}
+
+.scenario-editor > div h2 {
+  margin-bottom: 12px;
+}
+
+.scenario-editor > div p {
+  font-size: 14px;
+}
+
+.scenario-editor > div input,
+.scenario-editor > div textarea {
+  background: var(--white);
+}
+
+.scenario-editor > div button {
+  margin-top: 8px;
+}
+
+.event-list {
+  display: grid;
+  gap: 12px;
+}
+
+.event-card {
+  padding: 16px;
+  border: var(--border);
+  background: var(--white);
+}
+
+.event-card h3 {
+  margin-bottom: 8px;
+}
+
+.event-card p {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.event-card p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.device-page > div {
+  margin-top: 20px;
+  padding: 16px;
+  border: var(--border);
+  background: var(--gray-light);
+}
+
+.device-page > div h2 {
+  margin-bottom: 12px;
+}
+
+.device-page > div p {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.device-page > div button {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.device-page > p {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.device-page > button {
+  margin-bottom: 12px;
+}
+
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100dvh;
+}
+
+.welcome-page h1 {
+  max-width: 340px;
+  font-size: 30px;
+}
+
+.welcome-page > p {
+  max-width: 340px;
+  margin-bottom: 32px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.welcome-page > div {
+  display: grid;
+  gap: 12px;
+}
+
+.welcome-page > div button {
+  width: 100%;
+  min-height: 56px;
+}
+
+.room-selection-page > p {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.room-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.room-options button {
+  min-height: 90px;
+  padding: 16px 12px;
+  background: var(--gray-light);
+  text-align: center;
+  font-size: 15px;
+}
+
+.room-options button[aria-pressed="true"] {
+  background: var(--black);
+  color: var(--white);
+}
+
+.room-selection-page > p:last-child {
+  margin-top: 24px;
+  color: var(--black);
+  font-weight: 700;
+}
+
+.room-page > div {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.room-page > div button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 76px;
+  padding: 16px;
+  background: var(--gray-light);
+  text-align: left;
+}
+
+.room-page > div button h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.scenarios-page > button {
+  display: block;
+  width: 100%;
+  min-height: 76px;
+  margin-bottom: 12px;
+  padding: 16px;
+  background: var(--gray-light);
+  font-size: 17px;
+  text-align: left;
+}
+
+.room-scenarios-list > div {
+  display: grid;
+  gap: 12px;
+}
+
+.room-scenarios-list > div button {
+  width: 100%;
+  min-height: 60px;
+  padding: 16px;
+  background: var(--gray-light);
+}
+
+.assistant-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - var(--footer-height));
+}
+
+.assistant-page > section {
+  flex: 1;
+  padding: 16px 0;
+}
+
+.assistant-page > section > div {
+  padding: 16px;
+  border: var(--border);
+  background: var(--gray-light);
+}
+
+.assistant-page > section span {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.assistant-page > form {
+  position: sticky;
+  bottom: calc(var(--footer-height) + env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 12px 0;
+  background: var(--white);
+}
+
+.assistant-page > form button {
+  min-width: 96px;
+}
+
+section > button:first-child {
+  margin-bottom: 24px;
+}
+
+.home-page > button {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+}

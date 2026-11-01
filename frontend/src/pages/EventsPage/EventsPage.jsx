@@ -30,9 +30,9 @@ function EventsPage() {
     <section>
       <h1>Журнал событий</h1>
 
-      <div>
+      <div className="event-list">
         {events.map((event) => (
-          <div key={event.id}>
+          <div className="event-card" key={event.id}>
             <h3>{event.name}</h3>
             <p>{event.description}</p>
             <p>{event.room}</p>

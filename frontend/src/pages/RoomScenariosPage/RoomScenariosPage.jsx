@@ -92,6 +92,7 @@ function addScenario() {
       <div>
         {roomScenarios.map((scenario) => (
           <button
+            className="scenario-card"
             key={scenario.id}
             onClick={() => openScenario(scenario)}
           >

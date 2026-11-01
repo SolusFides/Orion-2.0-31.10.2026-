@@ -21,7 +21,7 @@ function HomePage() {
   }
 
   return (
-    <section>
+    <section className="home-page">
       <h1>Мой дом</h1>
 
       <div>
@@ -29,6 +29,7 @@ function HomePage() {
 
         {rooms.map((room) => (
           <button
+            className="room-card"
             key={room.id}
             onClick={() => openRoom(room.id)}
           >

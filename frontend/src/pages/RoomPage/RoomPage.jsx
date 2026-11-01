@@ -18,7 +18,7 @@ function RoomPage() {
   const roomName = rooms[selectedRoomId] || 'Комната';
 
   return (
-    <section>
+    <section className="room-page">
       <button onClick={() => dispatch(setPage('home'))}>
         ← Назад
       </button>

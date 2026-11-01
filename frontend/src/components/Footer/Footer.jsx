@@ -1,3 +1,4 @@
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setPage } from '../../store/navigationSlice';
 
@@ -8,7 +9,7 @@ function Footer() {
   );
 
   return (
-    <footer>
+    <footer className="app-footer">
       <button
         disabled={currentPage === 'home'}
         onClick={() => dispatch(setPage('home'))}
@@ -28,6 +29,13 @@ function Footer() {
         onClick={() => dispatch(setPage('events'))}
       >
         Журнал событий
+      </button>
+
+      <button
+        disabled={currentPage === 'assistant'}
+        onClick={() => dispatch(setPage('assistant'))}
+      >
+        Ассистент
       </button>
     </footer>
   );

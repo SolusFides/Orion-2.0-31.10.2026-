@@ -17,7 +17,7 @@ function RoomScenariosListPage() {
   };
 
   return (
-    <section>
+    <section className="room-scenarios-list">
       <button onClick={() => dispatch(setPage('scenarios'))}>
         ← Назад
       </button>

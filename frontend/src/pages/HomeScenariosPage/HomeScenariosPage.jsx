@@ -41,6 +41,7 @@ function HomeScenariosPage() {
       <div>
         {scenarios.map((scenario) => (
           <button
+            className="home-scenario-card"
             key={scenario.id}
             onClick={() => openScenario(scenario.id)}
           >

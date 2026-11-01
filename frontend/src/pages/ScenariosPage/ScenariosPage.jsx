@@ -13,7 +13,7 @@ function ScenariosPage() {
   };
 
   return (
-    <main>
+    <main className="scenarios-page">
       <h1>Сценарии</h1>
 
       <button onClick={openHomeScenarios}>

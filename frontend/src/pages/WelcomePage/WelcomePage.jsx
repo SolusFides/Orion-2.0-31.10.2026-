@@ -18,7 +18,7 @@ function WelcomePage() {
   };
 
   return (
-    <main>
+    <main className="welcome-page">
       <h1>У вас есть умный дом?</h1>
 
       <p>
