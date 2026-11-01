@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setPage } from '../../store/navigationSlice';
@@ -12,12 +13,18 @@ function LoginPage() {
 
   const isLogin = authMode === 'login';
 
-  const handleLogin = () => {
-    dispatch(setPage('home'));
-  };
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleRegister = () => {
-    dispatch(setPage('room-selection'));
+  const handleSubmit = () => {
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+
+    if (isLogin) {
+      dispatch(setPage('home'));
+    } else {
+      dispatch(setPage('room-selection'));
+    }
   };
 
   return (
@@ -26,12 +33,14 @@ function LoginPage() {
 
       <form>
         <div>
-          <label htmlFor="email">Электронная почта</label>
+          <label htmlFor="username">Логин</label>
           <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Введите электронную почту"
+            id="username"
+            type="text"
+            name="username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            placeholder="Введите логин"
           />
         </div>
 
@@ -41,19 +50,15 @@ function LoginPage() {
             id="password"
             type="password"
             name="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
             placeholder="Введите пароль"
           />
         </div>
 
-        {isLogin ? (
-          <button type="button" onClick={handleLogin}>
-            Войти
-          </button>
-        ) : (
-          <button type="button" onClick={handleRegister}>
-            Зарегистрироваться
-          </button>
-        )}
+        <button type="button" onClick={handleSubmit}>
+          {isLogin ? 'Войти' : 'Зарегистрироваться'}
+        </button>
       </form>
     </main>
   );
