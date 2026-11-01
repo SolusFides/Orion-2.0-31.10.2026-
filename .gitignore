@@ -1,0 +1,27 @@
+# Секреты: токены и пароли стенда Ujin — только в api_gateway/.env
+.env
+*.env
+!.env.example
+token.txt
+доступы.json
+*.pdf
+
+# Локальная база
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+api_gateway/data/*
+!api_gateway/data/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Редакторы и система
+.idea/
+.vscode/
+.DS_Store
